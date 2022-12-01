@@ -7,3 +7,14 @@
 
 import Foundation
 
+class DataManager {
+  
+  static let shered = DataManager()
+  
+  var status = ["Happy", "🍀", "angry"]
+  
+  var toDo = ["made salat", "burn cat", "go to gym"]
+  
+  var moreInfo = ["Cut cucumber, cut tomato", "Take cat and burn", "just walk to gym"]
+  
+}
