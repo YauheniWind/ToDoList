@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		50BC51A22938C95600330C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51A12938C95600330C46 /* AppDelegate.swift */; };
 		50BC51A42938C95600330C46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51A32938C95600330C46 /* SceneDelegate.swift */; };
-		50BC51A62938C95600330C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51A52938C95600330C46 /* ViewController.swift */; };
 		50BC51A92938C95600330C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC51A72938C95600330C46 /* Main.storyboard */; };
 		50BC51AB2938C95A00330C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BC51AA2938C95A00330C46 /* Assets.xcassets */; };
 		50BC51AE2938C95A00330C46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC51AC2938C95A00330C46 /* LaunchScreen.storyboard */; };
+		50BC51B62938C9B000330C46 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51B52938C9B000330C46 /* DataManager.swift */; };
+		50BC51B82938C9E400330C46 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51B72938C9E400330C46 /* InfoViewController.swift */; };
+		50BC51BA2938CA0200330C46 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51B92938CA0200330C46 /* ToDoTableViewController.swift */; };
+		50BC51C02938CA5800330C46 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC51BF2938CA5800330C46 /* ToDo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50BC519E2938C95500330C46 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC51A12938C95600330C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BC51A32938C95600330C46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50BC51A52938C95600330C46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50BC51A82938C95600330C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50BC51AA2938C95A00330C46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50BC51AD2938C95A00330C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50BC51AF2938C95A00330C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50BC51B52938C9B000330C46 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		50BC51B72938C9E400330C46 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		50BC51B92938CA0200330C46 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		50BC51BF2938CA5800330C46 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		50BC51A02938C95500330C46 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				50BC51C12938CA5C00330C46 /* Model */,
+				50BC51BC2938CA3000330C46 /* Services */,
 				50BC51A12938C95600330C46 /* AppDelegate.swift */,
 				50BC51A32938C95600330C46 /* SceneDelegate.swift */,
-				50BC51A52938C95600330C46 /* ViewController.swift */,
+				50BC51BB2938CA1C00330C46 /* ViewControllers */,
 				50BC51A72938C95600330C46 /* Main.storyboard */,
 				50BC51AA2938C95A00330C46 /* Assets.xcassets */,
 				50BC51AC2938C95A00330C46 /* LaunchScreen.storyboard */,
 				50BC51AF2938C95A00330C46 /* Info.plist */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		50BC51BB2938CA1C00330C46 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51B72938C9E400330C46 /* InfoViewController.swift */,
+				50BC51B92938CA0200330C46 /* ToDoTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		50BC51BC2938CA3000330C46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51B52938C9B000330C46 /* DataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		50BC51C12938CA5C00330C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51BF2938CA5800330C46 /* ToDo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BC51A62938C95600330C46 /* ViewController.swift in Sources */,
+				50BC51B62938C9B000330C46 /* DataManager.swift in Sources */,
 				50BC51A22938C95600330C46 /* AppDelegate.swift in Sources */,
 				50BC51A42938C95600330C46 /* SceneDelegate.swift in Sources */,
+				50BC51C02938CA5800330C46 /* ToDo.swift in Sources */,
+				50BC51B82938C9E400330C46 /* InfoViewController.swift in Sources */,
+				50BC51BA2938CA0200330C46 /* ToDoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,9 +338,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Yauheni-Hraudzin.ToDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,9 +369,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Yauheni-Hraudzin.ToDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
