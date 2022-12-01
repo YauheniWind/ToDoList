@@ -9,21 +9,21 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    override func viewDidLoad() {
+  @IBOutlet weak var statusTF: UITextField!
+  
+  @IBOutlet weak var toDoTF: UITextField!
+  
+  @IBOutlet weak var infoTF: UITextField!
+  
+  var status = ""
+  var toDo = ""
+  var info = ""
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    statusTF.text = status
+    toDoTF.text = toDo
+    infoTF.text = info
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

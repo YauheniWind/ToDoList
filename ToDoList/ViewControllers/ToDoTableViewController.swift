@@ -9,37 +9,34 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
 
+    var toDoList = ToDo.getToDoList()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      navigationItem.leftBarButtonItem = editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+      toDoList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let currentCell = tableView.dequeueReusableCell(withIdentifier: "editToDo", for: indexPath)
 
-        // Configure the cell...
+        let toDo = toDoList[indexPath.row]
+           
+        var content = currentCell.defaultContentConfiguration()
+           
+        content.text = toDo.whatStatus
+           
+        currentCell.contentConfiguration = content
+                  
 
-        return cell
+        return currentCell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -60,30 +57,43 @@ class ToDoTableViewController: UITableViewController {
         }    
     }
     */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+  override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    .delete
+  }
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      toDoList.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    */
+  }
+  
+  override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    true
+  }
+  
+  override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    let moveToDo = toDoList.remove(at: sourceIndexPath.row)
+    toDoList.insert(moveToDo, at: destinationIndexPath.row)
+    tableView.reloadData()
+  }
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+      guard let indexPath = tableView.indexPathForSelectedRow else { return }
+      guard let infolVC = segue.destination as? InfoViewController else { return }
+      let list = toDoList[indexPath.row]
+      
+      infolVC.status = list.whatStatus
+      infolVC.toDo = list.whatToDo
+      infolVC.info = list.moreAbout
+//      for list in toDoList {
+//        infolVC.status = list.whatStatus
+//        infolVC.toDo = list.whatToDo
+//        infolVC.info = list.moreAbout
+//      }
+//      infolVC.status = toDoList[indexPath.row]
     }
-    */
 
 }
