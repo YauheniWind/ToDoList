@@ -15,15 +15,13 @@ class InfoViewController: UIViewController {
   
   @IBOutlet weak var infoTF: UITextField!
   
-  var status = ""
-  var toDo = ""
-  var info = ""
+  var toDo: ToDo!
   
   override func viewDidLoad() {
         super.viewDidLoad()
-    statusTF.text = status
-    toDoTF.text = toDo
-    infoTF.text = info
+    statusTF.text = toDo.whatStatus
+    toDoTF.text = toDo.whatToDo
+    infoTF.text = toDo.moreAbout
     }
     
 }
