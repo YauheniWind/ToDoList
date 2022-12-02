@@ -31,6 +31,7 @@ extension ToDo {
       let toDo = ToDo(whatStatus: status[index],
                       whatToDo: toDo[index],
                       moreAbout: moreInfo[index])
+      toDoList.append(toDo)
     }
     
     return toDoList
