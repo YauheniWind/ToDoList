@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a9J-Z9-gvy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a9J-Z9-gvy">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="XoY-XK-3ou" kind="show" id="7xt-QM-JSS"/>
+                                    <segue destination="WMp-Wb-6CK" kind="presentation" modalPresentationStyle="fullScreen" id="7xt-QM-JSS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -34,13 +34,19 @@
                             <outlet property="delegate" destination="peb-sl-Een" id="bKd-9R-u35"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To-Do" id="tmA-DJ-j9P"/>
+                    <navigationItem key="navigationItem" title="To-Do" id="tmA-DJ-j9P">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rsk-ox-bg4">
+                            <connections>
+                                <segue destination="WMp-Wb-6CK" kind="showDetail" id="Opg-58-cW1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl8-ya-97Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="559" y="-56"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Add or Edit New ToDo-->
         <scene sceneID="Jz8-2C-kPm">
             <objects>
                 <viewController id="XoY-XK-3ou" customClass="InfoViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,16 +83,29 @@
                             <constraint firstItem="OCc-ly-txp" firstAttribute="trailing" secondItem="sY0-bb-dzw" secondAttribute="trailing" constant="50" id="zpJ-EE-55U"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tVM-3y-bUI"/>
+                    <navigationItem key="navigationItem" title="Add or Edit New ToDo" style="editor" id="tVM-3y-bUI">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fjY-WO-g7b">
+                            <connections>
+                                <action selector="cancelAction:" destination="XoY-XK-3ou" id="ODw-AO-8ef"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="AAm-c3-FIw">
+                            <connections>
+                                <segue destination="qmV-RS-54c" kind="unwind" unwindAction="unwindSegue:" id="u02-Ss-Jau"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="infoTF" destination="3Kj-J9-SjX" id="gdg-1Z-xbu"/>
+                        <outlet property="saveButton" destination="AAm-c3-FIw" id="IZw-aQ-bcX"/>
                         <outlet property="statusTF" destination="Up2-rr-Wgq" id="PWY-rH-1mm"/>
                         <outlet property="toDoTF" destination="gNy-OL-k7L" id="G7v-zs-s1x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byd-Gd-cl5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qmV-RS-54c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1385" y="-56"/>
+            <point key="canvasLocation" x="2324" y="-56.221889055472268"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="nEy-nM-1jS">
@@ -104,7 +123,29 @@
             </objects>
             <point key="canvasLocation" x="-362" y="-56"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s7g-ep-Cvw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WMp-Wb-6CK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="51o-7u-Px7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YZo-0e-zRY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XoY-XK-3ou" kind="relationship" relationship="rootViewController" id="lbi-RH-gaM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DA0-LG-jUn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384.8" y="-56.221889055472268"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Opg-58-cW1"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,13 +7,23 @@
 
 import UIKit
 
+//protocol InfoViewControllerDelegate {
+//    func saveAllTextField(with firstTF: UITextField, and secondTF: UITextField, also thirdTF: UITextField)
+//}
+
+
+
 class ToDoTableViewController: UITableViewController {
 
     var toDoList = ToDo.getToDoList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
       navigationItem.leftBarButtonItem = editButtonItem
+        
+
     }
 
     // MARK: - Table view data source
@@ -30,6 +40,7 @@ class ToDoTableViewController: UITableViewController {
         var content = currentCell.defaultContentConfiguration()
            
         content.text = toDo.whatStatus
+        
            
         currentCell.contentConfiguration = content
                   
@@ -64,7 +75,22 @@ class ToDoTableViewController: UITableViewController {
       guard let indexPath = tableView.indexPathForSelectedRow else { return }
       guard let infolVC = segue.destination as? InfoViewController else { return }
   
-      infolVC.toDo = toDoList[indexPath.row]
+        infolVC.newToDo = toDoList[indexPath.row]
+    }
+    
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        
+        guard let infoViewVC = segue.source as? InfoViewController else { return }
+        
+        infoViewVC.saveNewToDo()
+        toDoList.append(infoViewVC.newToDo)
+        tableView.reloadData()
     }
 
 }
+
+//extension ToDoTableViewController: InfoViewControllerDelegate {
+//    func saveAllTextField(with firstTF: UITextField, and secondTF: UITextField, also thirdTF: UITextField) {
+//
+//    }
+//}
