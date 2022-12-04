@@ -9,22 +9,16 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+  @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
-  @IBOutlet weak var statusTF: UITextField!
-  
-  @IBOutlet weak var toDoTF: UITextField!
-  
-  @IBOutlet weak var infoTF: UITextField!
-  
-  var newToDo: ToDo!
+    @IBOutlet weak var statusTF: UITextField!
+    
+    var newToDo: ToDo!
 
-    
-    
   override func viewDidLoad() {
-        super.viewDidLoad()
-
+      super.viewDidLoad()
+      
       saveButton.isEnabled = false
       
       statusTF.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
@@ -37,16 +31,12 @@ class InfoViewController: UIViewController {
         
         }
     
-    
-    func saveNewToDo() {
-         newToDo = ToDo(whatStatus: statusTF.text!,
-                       whatToDo: toDoTF.text!,
-                       moreAbout: infoTF.text!
-        )
-    }
-    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    func saveNewToDo() {
+        newToDo = ToDo(whatStatus: statusTF.text ?? "")
     }
 }
 
@@ -54,10 +44,10 @@ extension InfoViewController: UITextFieldDelegate {
     
     @objc private func textFieldChange() {
         
-        if statusTF.text?.isEmpty == false {
-            saveButton.isEnabled = true
-        } else {
+        if statusTF.text?.isEmpty == true {
             saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled = true
         }
     }
     

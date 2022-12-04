@@ -62,10 +62,10 @@
 		50BC51A02938C95500330C46 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				50BC51A32938C95600330C46 /* SceneDelegate.swift */,
+				50BC51A12938C95600330C46 /* AppDelegate.swift */,
 				50BC51C12938CA5C00330C46 /* Model */,
 				50BC51BC2938CA3000330C46 /* Services */,
-				50BC51A12938C95600330C46 /* AppDelegate.swift */,
-				50BC51A32938C95600330C46 /* SceneDelegate.swift */,
 				50BC51BB2938CA1C00330C46 /* ViewControllers */,
 				50BC51A72938C95600330C46 /* Main.storyboard */,
 				50BC51AA2938C95A00330C46 /* Assets.xcassets */,

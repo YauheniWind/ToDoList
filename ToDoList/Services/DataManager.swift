@@ -9,7 +9,7 @@ import Foundation
 
 class DataManager {
   
-  static let shered = DataManager()
+  static let shared = DataManager()
   
   var status = ["Happy", "🍀", "angry"]
   
