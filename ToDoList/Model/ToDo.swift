@@ -7,27 +7,17 @@
 
 
 struct ToDo {
-  let whatStatus: String
-//  let whatToDo: String
-//  let moreAbout: String
+  let toDo: String
 }
 
 extension ToDo {
   static func getToDoList() -> [ToDo] {
     var toDoList: [ToDo] = []
     
-    let status = DataManager.shared.status
     let toDo = DataManager.shared.toDo
-    let moreInfo = DataManager.shared.moreInfo
     
-    let iteretionCount = min(
-          status.count,
-          toDo.count,
-          moreInfo.count
-        )
-    
-    for index in 0..<iteretionCount {
-      let toDo = ToDo(whatStatus: status[index])
+    for index in 0..<toDo.count {
+      let toDo = ToDo(toDo: toDo[index])
       toDoList.append(toDo)
     }
     

@@ -8,47 +8,47 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-
+  
   @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    
-    @IBOutlet weak var statusTF: UITextField!
-    
-    var newToDo: ToDo!
-
+  
+  
+  @IBOutlet weak var statusTF: UITextField!
+  
+  var newToDo: ToDo!
+  
   override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      saveButton.isEnabled = false
-      
-      statusTF.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
-      
-    }
+    super.viewDidLoad()
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-        
-        }
+    saveButton.isEnabled = false
     
-    @IBAction func cancelAction(_ sender: Any) {
-        dismiss(animated: true)
-    }
+    statusTF.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
     
-    func saveNewToDo() {
-        newToDo = ToDo(whatStatus: statusTF.text ?? "")
-    }
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    view.endEditing(true)
+    
+  }
+  
+  @IBAction func cancelAction(_ sender: Any) {
+    dismiss(animated: true)
+  }
+  
+  func saveNewToDo() {
+    newToDo = ToDo(toDo: statusTF.text ?? "")
+  }
 }
 
 extension InfoViewController: UITextFieldDelegate {
+  
+  @objc private func textFieldChange() {
     
-    @objc private func textFieldChange() {
-        
-        if statusTF.text?.isEmpty == true {
-            saveButton.isEnabled = false
-        } else {
-            saveButton.isEnabled = true
-        }
+    if statusTF.text?.isEmpty == true {
+      saveButton.isEnabled = false
+    } else {
+      saveButton.isEnabled = true
     }
-    
+  }
+  
 }

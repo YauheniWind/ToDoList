@@ -11,10 +11,7 @@ class DataManager {
   
   static let shared = DataManager()
   
-  var status = ["Happy", "🍀", "angry"]
+  var toDo = ["Name of group: Sweet patato", "Дмитрий Свистов", "Yauheni Hraudzin"]
   
-  var toDo = ["made salat", "burn cat", "go to gym"]
-  
-  var moreInfo = ["Cut cucumber, cut tomato", "Take cat and burn", "just walk to gym"]
   
 }

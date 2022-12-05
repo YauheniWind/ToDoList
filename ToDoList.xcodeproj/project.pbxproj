@@ -43,6 +43,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5016279E293E47E7006F7764 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51AF2938C95A00330C46 /* Info.plist */,
+				50BC51A32938C95600330C46 /* SceneDelegate.swift */,
+				50BC51A12938C95600330C46 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5016279F293E4824006F7764 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51A72938C95600330C46 /* Main.storyboard */,
+				50BC51AC2938C95A00330C46 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		501627A0293E48C6006F7764 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50BC51AA2938C95A00330C46 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		50BC51952938C95500330C46 = {
 			isa = PBXGroup;
 			children = (
@@ -62,15 +89,12 @@
 		50BC51A02938C95500330C46 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				50BC51A32938C95600330C46 /* SceneDelegate.swift */,
-				50BC51A12938C95600330C46 /* AppDelegate.swift */,
+				5016279E293E47E7006F7764 /* App */,
+				501627A0293E48C6006F7764 /* Resources */,
 				50BC51C12938CA5C00330C46 /* Model */,
+				5016279F293E4824006F7764 /* Storyboards */,
 				50BC51BC2938CA3000330C46 /* Services */,
 				50BC51BB2938CA1C00330C46 /* ViewControllers */,
-				50BC51A72938C95600330C46 /* Main.storyboard */,
-				50BC51AA2938C95A00330C46 /* Assets.xcassets */,
-				50BC51AC2938C95A00330C46 /* LaunchScreen.storyboard */,
-				50BC51AF2938C95A00330C46 /* Info.plist */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -325,7 +349,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH8P7YM2P6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_FILE = ToDoList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -357,7 +381,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH8P7YM2P6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_FILE = ToDoList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
